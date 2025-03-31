@@ -1,0 +1,153 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f9ff 0%, #e8f0ff 100%);
+}
+
+.diary-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  color: #2c3e50;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #7eb6ff;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #6aa6ff;
+  box-shadow: 0 0 0 3px rgba(126, 182, 255, 0.1);
+}
+
+.diary-content {
+  min-height: 300px;
+  max-height: 500px;
+  resize: vertical;
+}
+
+.emotion-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237eb6ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+.credentials-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e8f0ff;
+}
+
+.submit-button {
+  background-color: #7eb6ff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: block;
+  margin: 2rem auto 0;
+  width: 100%;
+  max-width: 300px;
+}
+
+.submit-button:hover {
+  background-color: #6aa6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 모바일 디바이스를 위한 미디어 쿼리 */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .diary-container {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-input {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+
+  .diary-content {
+    min-height: 250px;
+    max-height: 400px;
+  }
+}
+
+/* 작은 모바일 디바이스를 위한 미디어 쿼리 */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0.8rem;
+  }
+
+  .diary-container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+  }
+
+  .form-input {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .diary-content {
+    min-height: 200px;
+    max-height: 300px;
+  }
+
+  .submit-button {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}

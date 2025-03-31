@@ -1,0 +1,131 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f9ff 0%, #e8f0ff 100%);
+}
+
+.diary-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.diary-header {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.diary-content {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  white-space: pre-wrap;
+}
+
+.comment-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e8f0ff;
+  width: 100%;
+}
+
+.comment-input {
+  width: 100%;
+  min-height: 100px;
+  max-height: 200px;
+  padding: 1rem;
+  border: 2px solid #7eb6ff;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  resize: vertical;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.comment-input:focus {
+  outline: none;
+  border-color: #6aa6ff;
+}
+
+.save-button {
+  background-color: #7eb6ff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.save-button:hover {
+  background-color: #6aa6ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 모바일 디바이스를 위한 미디어 쿼리 */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .diary-container {
+    padding: 1.5rem;
+  }
+
+  .diary-header {
+    font-size: 1.1rem;
+  }
+
+  .diary-content {
+    font-size: 1rem;
+  }
+
+  .comment-input {
+    min-height: 80px;
+    max-height: 150px;
+    font-size: 0.95rem;
+  }
+}
+
+/* 작은 모바일 디바이스를 위한 미디어 쿼리 */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0.8rem;
+  }
+
+  .diary-container {
+    padding: 1rem;
+  }
+
+  .diary-header {
+    font-size: 1rem;
+  }
+
+  .diary-content {
+    font-size: 0.95rem;
+  }
+
+  .comment-input {
+    min-height: 70px;
+    max-height: 120px;
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .save-button {
+    width: 100%;
+    padding: 0.7rem;
+  }
+}

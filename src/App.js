@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import EmotionSelectPage from "./pages/EmotionSelectPage";
+import RandomDiaryPage from "./pages/RandomDiaryPage";
+import WriteDiaryPage from "./pages/WriteDiaryPage";
+import MyDiaryPage from "./pages/MyDiaryPage";
+import MyDiaryList from "./pages/MyDiaryList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/emotionselect" element={<EmotionSelectPage />} />
+        <Route path="/random-diary" element={<RandomDiaryPage />} />
+        <Route path="/write-todaydiary" element={<WriteDiaryPage />} />
+        <Route path="/my-diarylist" element={<MyDiaryList />} />
+        <Route path="/my-diary/:id" element={<MyDiaryPage />} />
+      </Routes>
+    </Router>
   );
 }
 
