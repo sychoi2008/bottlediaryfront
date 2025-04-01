@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../css/EmotionSelectPage.css";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import api from "../utils/api";
 
 const EmotionSelectPage = () => {

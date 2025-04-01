@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { replace, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../css/MyDiaryList.css";
 import CryptoJS from "crypto-js";
 import api from "../utils/api";
