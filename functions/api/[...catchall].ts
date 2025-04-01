@@ -1,7 +1,11 @@
 export async function onRequest(context: any) {
   const url = new URL(context.request.url);
-  const path = url.pathname.replace("/api", ""); // /api/diary → /diary
+
+  // ✅ /api/bottlediary/emotions → /bottlediary/emotions
+  const path = url.pathname.replace(/^\/api/, "");
+
   const backendUrl = `http://3.39.23.44:8080${path}`;
+  console.log("🔁 Proxying to backend:", backendUrl);
 
   const response = await fetch(backendUrl, {
     method: context.request.method,
