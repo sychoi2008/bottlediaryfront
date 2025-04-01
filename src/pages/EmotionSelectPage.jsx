@@ -22,6 +22,7 @@ const EmotionSelectPage = () => {
   };
 
   useEffect(() => {
+    console.log("sending request?");
     api.get("/bottlediary/emotions").then((res) => {
       setEmotions(res.data.results);
     });
