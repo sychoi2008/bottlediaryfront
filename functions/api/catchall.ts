@@ -1,8 +1,9 @@
+// functions/api/catchall.ts
 export async function onRequest(context: any) {
   const url = new URL(context.request.url);
 
-  // ✅ /api/bottlediary/emotions → /bottlediary/emotions
-  const path = url.pathname.replace(/^\/api/, "");
+  // 여기서 /api/ 뒷부분을 파싱
+  const path = url.pathname.replace(/^\/api/, ""); // /api/xx → /xx
 
   const backendUrl = `http://3.39.23.44:8080${path}`;
   console.log("🔁 Proxying to backend:", backendUrl);
