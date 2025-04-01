@@ -1,8 +1,6 @@
 export async function onRequest(context: any) {
   const url = new URL(context.request.url);
-
-  // '/api' 부분 제거
-  const path = url.pathname.replace(/^\/api/, "");
+  const path = url.pathname.replace(/^\/api/, ""); // "/bottlediary/emotions" 등
   const backendUrl = `http://3.39.23.44:8080${path}`;
   console.log("Proxying to backend:", backendUrl);
 
