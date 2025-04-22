@@ -27,4 +27,4 @@ https://bottlediary-one.vercel.app/
 ## 🔗 バックエンドリポジトリ
 
 バックエンドのソースコードはこちらをご参照ください。  
-👉 [Bottle Diary - Backend](https://github.com/sychoi2008/mzbeeperback)
+👉 [Bottle Diary - Backend](https://github.com/sychoi2008/bottlediaryserver)
