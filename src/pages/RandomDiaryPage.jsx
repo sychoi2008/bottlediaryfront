@@ -22,7 +22,7 @@ const RandomDiaryPage = () => {
 
   const handleCommentSubmit = () => {
     // TODO: 댓글 저장 API 호출
-    console.log("댓글 저장:", comment);
+    console.log("コメント保存：", comment);
     setComment("");
 
     api
@@ -31,30 +31,33 @@ const RandomDiaryPage = () => {
         diaryId: diaryId,
       })
       .then((res) => {
-        alert("댓글 유리병을 보냈습니다");
-        // replace 추가가
+        alert("コメントボトルを送りました");
+        // replace 추가
         navigate("/write-todaydiary", { replace: true });
+      })
+      .catch((error) => {
+        alert("コメントボトルが空です。ぜひメッセージを入れてください");
       });
   };
 
   if (!diary) {
-    return <div className="container">로딩 중...</div>;
+    return <div className="container">読み込み中...</div>;
   }
 
   return (
     <div className="container">
       <div className="diary-container">
-        <h2 className="diary-header">익명의 독자님의 두 손에</h2>
+        <h2 className="diary-header">匿名の読者様の両手に</h2>
         <div className="diary-content">{diary.content}</div>
         <div className="comment-section">
           <textarea
             className="comment-input"
-            placeholder="댓글을 남겨주세요..."
+            placeholder="コメントを残してください..."
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
           <button className="save-button" onClick={handleCommentSubmit}>
-            댓글 저장하기
+            コメントを保存する
           </button>
         </div>
       </div>

@@ -33,22 +33,22 @@ const WriteDiaryPage = () => {
     api
       .post("/bottlediary/todaydiary", formData)
       .then((res) => {
-        alert("유리병을 바다에 흘려보냈습니다.");
+        alert("ガラス瓶を海に流しました。");
         navigate("/my-diarylist", { replace: true });
       })
       .catch((error) => {
-        alert("유리병에 균열이 있어 실패했습니다.");
+        alert("ガラス瓶にひびが入り、失敗しました。");
       });
   };
 
   return (
     <div className="container">
       <div className="diary-container">
-        <h1 className="title">오늘의 유리병을 보내봅시다</h1>
+        <h1 className="title">今日のガラス瓶を送ってみましょう。</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="form-label" htmlFor="title">
-              제목
+              タイトル
             </label>
             <input
               type="text"
@@ -63,7 +63,7 @@ const WriteDiaryPage = () => {
 
           <div className="form-group">
             <label className="form-label" htmlFor="emotionId">
-              오늘의 감정
+              今日の感情
             </label>
             <select
               id="emotionId"
@@ -73,7 +73,7 @@ const WriteDiaryPage = () => {
               onChange={handleChange}
               required
             >
-              <option value="">감정을 선택해주세요</option>
+              <option value="">感情を選んでください</option>
               {emotions.map((emotion) => (
                 <option key={emotion.emotionId} value={emotion.emotionId}>
                   {emotion.emotionName}
@@ -84,7 +84,7 @@ const WriteDiaryPage = () => {
 
           <div className="form-group">
             <label className="form-label" htmlFor="content">
-              일기 내용
+              日記の内容
             </label>
             <textarea
               id="content"
@@ -99,7 +99,7 @@ const WriteDiaryPage = () => {
           <div className="credentials-section">
             <div className="form-group">
               <label className="form-label" htmlFor="userId">
-                아이디
+                ID
               </label>
               <input
                 type="text"
@@ -114,7 +114,7 @@ const WriteDiaryPage = () => {
 
             <div className="form-group">
               <label className="form-label" htmlFor="password">
-                비밀번호
+                パスワード
               </label>
               <input
                 type="password"
@@ -129,7 +129,7 @@ const WriteDiaryPage = () => {
           </div>
 
           <button type="submit" className="submit-button">
-            일기 저장하기
+            日記を保存する
           </button>
         </form>
       </div>

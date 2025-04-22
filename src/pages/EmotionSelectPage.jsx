@@ -7,17 +7,17 @@ const EmotionSelectPage = () => {
   const navigate = useNavigate();
   const [emotions, setEmotions] = useState([]);
   const description = [
-    "감사, 만족, 성취감",
-    "피로, 무기력, 번아웃",
-    "우울, 상실감, 외로움",
-    "분노, 짜증, 답답함",
-    "불안, 당황, 갈등",
-    "공허, 무관심, 지루함",
-    "호기심, 실험, 새로운 시작",
+    "感謝、満足、達成感",
+    "疲労、無気力、燃え尽き",
+    "憂鬱、喪失感、孤独",
+    "怒り、苛立ち、もどかしさ",
+    "不安、戸惑い、葛藤",
+    "虚無、無関心、退屈",
+    "好奇心、挑戦、新しい始まり",
   ];
 
   const handleEmotionClick = (emotionId) => {
-    // replace 추가가
+    // replace 추가
     navigate(`/random-diary?emotion=${emotionId}`);
   };
 
@@ -30,7 +30,7 @@ const EmotionSelectPage = () => {
 
   return (
     <div className="container">
-      <h1 className="title">오늘의 감정을 선택해주세요</h1>
+      <h1 className="title">今日の感情を選んでください</h1>
       <div className="emotion-grid">
         {emotions.map((emotion) => (
           <button

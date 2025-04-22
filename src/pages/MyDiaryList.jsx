@@ -12,7 +12,7 @@ const MyDiaryList = () => {
   const [diaries, setDiaries] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const userId = localStorage.getItem("userId");
+  const [userId, setUserId] = useState(localStorage.getItem("userId") || "");
 
   useEffect(() => {
     if (userId) {
@@ -21,34 +21,35 @@ const MyDiaryList = () => {
     }
   }, [userId, currentPage]);
 
-  const fetchDiaries = () => {
+  const fetchDiaries = (uid = userId) => {
     api
       .post(
         `/bottlediary/mydiary?page=${currentPage}&size=5`,
-        {
-          userId: userId,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        { userId: uid },
+        { headers: { "Content-Type": "application/json" } }
       )
       .then((res) => {
         console.log(res);
-        setDiaries(res.data);
-        // setTotalPages(res.data.totalPages);
+        setDiaries(res.data.content);
+        setTotalPages(res.data.totalPages);
       })
       .catch((error) => {
-        console.error("일기 목록을 불러오는데 실패했습니다:", error);
+        console.error("日記リストの取得に失敗しました:", error);
+        alert("もう一度ログインしてください。");
       });
   };
 
   const handleLogin = () => {
-    setIsLoggedIn(true);
-    fetchDiaries();
+    if (!id.trim() || !password.trim()) {
+      alert("IDとパスワードを両方入力してください。");
+      return; // 함수 종료
+    }
+
     const hash = CryptoJS.SHA256(id + password).toString(CryptoJS.enc.Hex);
     localStorage.setItem("userId", hash);
+    setUserId(hash);
+    setIsLoggedIn(true);
+    fetchDiaries(hash);
   };
 
   const handlePageChange = (page) => {
@@ -74,11 +75,11 @@ const MyDiaryList = () => {
     return (
       <div className="container">
         <div className="diary-container">
-          <h1 className="title">나의 유리병 모음🫙</h1>
+          <h1 className="title">私のガラス瓶コレクション🫙</h1>
           <div className="login-form">
             <div className="form-group">
               <label className="form-label" htmlFor="id">
-                아이디를 입력해주세요
+                IDを入力してください。
               </label>
               <input
                 id="id"
@@ -87,7 +88,7 @@ const MyDiaryList = () => {
                 onChange={(e) => setId(e.target.value)}
               />
               <label className="form-label" htmlFor="password">
-                비밀번호를 입력해주세요
+                パスワードを入力してください。
               </label>
               <input
                 type="password"
@@ -99,7 +100,7 @@ const MyDiaryList = () => {
               />
             </div>
             <button className="submit-button" onClick={handleLogin}>
-              확인하기
+              確認する
             </button>
           </div>
         </div>
@@ -110,7 +111,7 @@ const MyDiaryList = () => {
   return (
     <div className="container">
       <div className="diary-container">
-        <h1 className="title">나의 유리병 선반✨</h1>
+        <h1 className="title">私のガラス瓶シェルフ✨</h1>
         <div className="diary-list">
           {diaries.map((diary) => (
             <div
@@ -135,10 +136,10 @@ const MyDiaryList = () => {
           ))}
         </div>
         <button className="logout-button" onClick={handleLogout}>
-          다른 아이디로 유리병 찾기
+          別のIDでガラス瓶を探す
         </button>
         <button className="logout-button" onClick={goHome}>
-          홈으로 가기
+          ホームに戻る
         </button>
       </div>
     </div>

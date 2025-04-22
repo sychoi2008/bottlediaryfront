@@ -23,7 +23,7 @@ const MyDiaryPage = () => {
         setComments(res.data.comments || []);
       })
       .catch((error) => {
-        console.error("일기를 불러오는데 실패했습니다:", error);
+        console.error("日記の取得に失敗しました：", error);
       });
   }, [id, userId]);
 
@@ -35,7 +35,7 @@ const MyDiaryPage = () => {
         <div className="diary-content">{content}</div>
 
         <div className="comments-section">
-          <h3 className="comments-title">댓글</h3>
+          <h3 className="comments-title">コメント</h3>
           <div className="comment-list">
             {comments.map((comment) => (
               <div key={comment.id} className="comment-item">
@@ -51,7 +51,7 @@ const MyDiaryPage = () => {
           className="back-button"
           onClick={() => navigate("/my-diarylist")}
         >
-          목록으로 가기
+          リストに戻る
         </button>
       </div>
     </div>
