@@ -40,9 +40,6 @@ const MyDiaryPage = () => {
             {comments.map((comment) => (
               <div key={comment.id} className="comment-item">
                 <div className="comment-content">{comment.content}</div>
-                <div className="comment-date">
-                  {new Date(comment.createdAt).toLocaleDateString()}
-                </div>
               </div>
             ))}
           </div>
